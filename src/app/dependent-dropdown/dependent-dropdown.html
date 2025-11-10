@@ -1,0 +1,44 @@
+<form [formGroup]="dropdownForm">
+<div class="container mt-4">
+  <div class="row g-3">
+    <!-- Country Dropdown -->
+    <div class="col-12 col-md-6">
+      <label for="country" class="form-label fw-semibold">Country</label>
+      <select
+        id="country"
+        class="form-select"
+        formControlName="country"
+        (change)="onCountryChange()"
+      >
+        <option value="0">-- Select Country --</option>
+        <option *ngFor="let c of Countries" [value]="c.code">
+          {{ c.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- State Dropdown -->
+    <div class="col-12 col-md-6">
+      <label for="state" class="form-label fw-semibold">State</label>
+      <select
+        id="state"
+        class="form-select" formControlName="state">
+        <option value="0">-- Select State --</option>
+        <option *ngFor="let s of states" [value]="s.code">
+          {{ s.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Selected Output -->
+  <!-- <div class="row mt-4">
+    <div class="col">
+      <p *ngIf="selectedCountry">
+        🌍 <strong>Country:</strong> {{ selectedCountry }} |
+        🏙 <strong>State:</strong> {{ selectedState || 'None selected' }}
+      </p>
+    </div>
+  </div> -->
+</div>
+</form>
